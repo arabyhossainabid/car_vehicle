@@ -43,10 +43,9 @@ export default async function VehicleDetailPage(props: { params: Promise<{ id: s
             </Link>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                {/* Left Col: Image & Info */}
+
                 <div>
                     <div className="relative aspect-video rounded-3xl overflow-hidden mb-8 border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)]">
-                        {/* Gradient Placeholder or Image */}
                         <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-800" />
                         <Image
                             src="/hero-car.png"
@@ -65,8 +64,8 @@ export default async function VehicleDetailPage(props: { params: Promise<{ id: s
                             {vehicle.registration_number}
                         </span>
                         <span className={`px-4 py-2 rounded-full text-sm uppercase tracking-wider border ${vehicle.availability_status === 'available'
-                                ? 'border-green-500/50 text-green-400'
-                                : 'border-red-500/50 text-red-400'
+                            ? 'border-green-500/50 text-green-400'
+                            : 'border-red-500/50 text-red-400'
                             }`}>
                             {vehicle.availability_status}
                         </span>
@@ -81,7 +80,6 @@ export default async function VehicleDetailPage(props: { params: Promise<{ id: s
                     </div>
                 </div>
 
-                {/* Right Col: Booking */}
                 <div>
                     <BookingInterface vehicle={vehicle} />
                 </div>

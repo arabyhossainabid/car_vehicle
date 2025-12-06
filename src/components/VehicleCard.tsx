@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Vehicle } from '@/types';
 
 interface VehicleCardProps {
@@ -6,13 +7,22 @@ interface VehicleCardProps {
 }
 
 export default function VehicleCard({ vehicle }: VehicleCardProps) {
+    // Cycle through available vehicle images based on ID
+    const getVehicleImage = (id: number) => {
+        const imageIndex = ((id - 1) % 3) + 1;
+        return `/vehicle-${imageIndex}.png`;
+    };
+
     return (
         <div className="group relative bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-cyan-500/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,243,255,0.15)]">
-            {/* Image Placeholder - In a real app we would use vehicle.image if available */}
-            <div className="h-48 bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center relative overflow-hidden">
-                {/* Use the same hero image for now as placeholder for all cards, or a gradient */}
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-300" />
-                <span className="text-4xl">🚗</span>
+            <div className="h-48 bg-gradient-to-br from-gray-900 to-gray-800 relative overflow-hidden">
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300 z-10" />
+                <Image
+                    src={getVehicleImage(vehicle.id)}
+                    alt={vehicle.vehicle_name}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                />
             </div>
 
             <div className="p-6">
@@ -24,8 +34,8 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
                         <p className="text-sm text-gray-400 uppercase tracking-wider mt-1">{vehicle.type}</p>
                     </div>
                     <span className={`px-3 py-1 rounded-full text-xs font-medium border ${vehicle.availability_status === 'available'
-                            ? 'border-green-500/50 text-green-400 bg-green-500/10'
-                            : 'border-red-500/50 text-red-400 bg-red-500/10'
+                        ? 'border-green-500/50 text-green-400 bg-green-500/10'
+                        : 'border-red-500/50 text-red-400 bg-red-500/10'
                         }`}>
                         {vehicle.availability_status}
                     </span>
