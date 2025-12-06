@@ -71,8 +71,8 @@ export default function BookingInterface({ vehicle }: BookingInterfaceProps) {
     const totalPrice = calculateTotal();
 
     return (
-        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
-            <h3 className="text-2xl font-bold mb-6">Book This Vehicle</h3>
+        <div className="bg-white/5 border border-white/10 rounded-xl sm:rounded-2xl p-4 sm:p-6 backdrop-blur-md">
+            <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Book This Vehicle</h3>
 
             {error && (
                 <div className="p-3 mb-4 bg-red-500/10 border border-red-500/50 text-red-500 rounded text-sm">
@@ -80,38 +80,38 @@ export default function BookingInterface({ vehicle }: BookingInterfaceProps) {
                 </div>
             )}
 
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
                 <div>
-                    <label className="block text-sm text-gray-400 mb-1">Start Date</label>
+                    <label className="block text-xs sm:text-sm text-gray-400 mb-1">Start Date</label>
                     <input
                         type="date"
                         value={startDate}
                         min={new Date().toISOString().split('T')[0]}
                         onChange={(e) => setStartDate(e.target.value)}
-                        className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors scheme-dark"
+                        className="w-full bg-black/50 border border-white/10 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-white text-sm sm:text-base focus:outline-none focus:border-cyan-500 transition-colors scheme-dark"
                     />
                 </div>
 
                 <div>
-                    <label className="block text-sm text-gray-400 mb-1">End Date</label>
+                    <label className="block text-xs sm:text-sm text-gray-400 mb-1">End Date</label>
                     <input
                         type="date"
                         value={endDate}
                         min={startDate || new Date().toISOString().split('T')[0]}
                         onChange={(e) => setEndDate(e.target.value)}
-                        className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors scheme-dark"
+                        className="w-full bg-black/50 border border-white/10 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-white text-sm sm:text-base focus:outline-none focus:border-cyan-500 transition-colors scheme-dark"
                     />
                 </div>
 
-                <div className="py-4 border-t border-white/10 flex justify-between items-center">
-                    <span className="text-gray-400">Total Price</span>
-                    <span className="text-3xl font-bold text-cyan-400">${totalPrice}</span>
+                <div className="py-3 sm:py-4 border-t border-white/10 flex justify-between items-center">
+                    <span className="text-sm sm:text-base text-gray-400">Total Price</span>
+                    <span className="text-2xl sm:text-3xl font-bold text-cyan-400">${totalPrice}</span>
                 </div>
 
                 <button
                     onClick={handleBooking}
                     disabled={loading || !startDate || !endDate || totalPrice <= 0}
-                    className="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-lg rounded-xl hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all disabled:opacity-50 disabled:shadow-none"
+                    className="w-full py-3 sm:py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-base sm:text-lg rounded-xl hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all disabled:opacity-50 disabled:shadow-none"
                 >
                     {loading ? 'Processing...' : 'Confirm Booking'}
                 </button>

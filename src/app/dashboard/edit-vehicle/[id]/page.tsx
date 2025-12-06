@@ -94,77 +94,77 @@ export default function EditVehiclePage(props: { params: Promise<{ id: string }>
     }
 
     return (
-        <div className="min-h-screen py-10 px-6 max-w-2xl mx-auto">
-            <Link href="/dashboard" className="inline-block mb-8 text-gray-400 hover:text-white transition-colors">
+        <div className="min-h-screen py-8 sm:py-10 px-4 sm:px-6 max-w-2xl mx-auto pt-20 sm:pt-24">
+            <Link href="/dashboard" className="inline-block mb-6 sm:mb-8 text-sm sm:text-base text-gray-400 hover:text-white transition-colors">
                 ← Back to Dashboard
             </Link>
 
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
-                <h1 className="text-3xl font-bold mb-6">Edit Vehicle</h1>
+            <div className="bg-white/5 border border-white/10 rounded-xl sm:rounded-2xl p-6 sm:p-8">
+                <h1 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">Edit Vehicle</h1>
 
                 {error && (
-                    <div className="p-3 mb-4 bg-red-500/10 border border-red-500/50 text-red-400 rounded-lg text-sm">
+                    <div className="p-3 mb-4 bg-red-500/10 border border-red-500/50 text-red-400 rounded-lg text-xs sm:text-sm">
                         {error}
                     </div>
                 )}
 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                     <div>
-                        <label className="block text-sm font-medium text-gray-400 mb-2">Vehicle Name</label>
+                        <label className="block text-xs sm:text-sm font-medium text-gray-400 mb-2">Vehicle Name</label>
                         <input
                             name="vehicle_name"
                             type="text"
                             value={formData.vehicle_name}
                             onChange={handleChange}
-                            className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
+                            className="w-full bg-black/50 border border-white/10 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
                             required
                         />
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-400 mb-2">Type</label>
+                        <label className="block text-xs sm:text-sm font-medium text-gray-400 mb-2">Type</label>
                         <input
                             name="type"
                             type="text"
                             value={formData.type}
                             onChange={handleChange}
-                            className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
+                            className="w-full bg-black/50 border border-white/10 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
                             required
                         />
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-400 mb-2">Registration Number</label>
+                        <label className="block text-xs sm:text-sm font-medium text-gray-400 mb-2">Registration Number</label>
                         <input
                             name="registration_number"
                             type="text"
                             value={formData.registration_number}
                             onChange={handleChange}
-                            className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
+                            className="w-full bg-black/50 border border-white/10 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
                             required
                         />
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-400 mb-2">Daily Rent Price ($)</label>
+                        <label className="block text-xs sm:text-sm font-medium text-gray-400 mb-2">Daily Rent Price ($)</label>
                         <input
                             name="daily_rent_price"
                             type="number"
                             step="0.01"
                             value={formData.daily_rent_price}
                             onChange={handleChange}
-                            className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
+                            className="w-full bg-black/50 border border-white/10 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
                             required
                         />
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-400 mb-2">Availability Status</label>
+                        <label className="block text-xs sm:text-sm font-medium text-gray-400 mb-2">Availability Status</label>
                         <select
                             name="availability_status"
                             value={formData.availability_status}
                             onChange={handleChange}
-                            className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
+                            className="w-full bg-black/50 border border-white/10 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
                         >
                             <option value="available">Available</option>
                             <option value="booked">Booked</option>
@@ -174,7 +174,7 @@ export default function EditVehiclePage(props: { params: Promise<{ id: string }>
                     <button
                         type="submit"
                         disabled={submitting}
-                        className="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-lg rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50"
+                        className="w-full py-3 sm:py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-base sm:text-lg rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50"
                     >
                         {submitting ? 'Updating Vehicle...' : 'Update Vehicle'}
                     </button>

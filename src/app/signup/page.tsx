@@ -52,64 +52,64 @@ export default function SignupPage() {
     };
 
     return (
-        <div className="min-h-[80vh] flex items-center justify-center px-4 py-10">
-            <div className="w-full max-w-md bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-2xl">
-                <h2 className="text-3xl font-bold mb-6 text-center text-white">Create Account</h2>
+        <div className="min-h-[80vh] flex items-center justify-center px-4 py-10 sm:py-16 pt-24 sm:pt-28">
+            <div className="w-full max-w-md bg-white/5 backdrop-blur-xl border border-white/10 p-6 sm:p-8 rounded-xl sm:rounded-2xl shadow-2xl">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-center text-white">Create Account</h2>
 
                 {error && (
-                    <div className="p-3 mb-4 bg-red-500/10 border border-red-500/50 text-red-400 rounded-lg text-sm">
+                    <div className="p-3 mb-4 bg-red-500/10 border border-red-500/50 text-red-400 rounded-lg text-xs sm:text-sm">
                         {error}
                     </div>
                 )}
 
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
                     <div>
-                        <label className="block text-sm font-medium text-gray-400 mb-1">Full Name</label>
+                        <label className="block text-xs sm:text-sm font-medium text-gray-400 mb-1">Full Name</label>
                         <input
                             name="name"
                             type="text"
                             value={formData.name}
                             onChange={handleChange}
-                            className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
+                            className="w-full bg-black/50 border border-white/10 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
                             placeholder="John Doe"
                             required
                         />
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-400 mb-1">Email</label>
+                        <label className="block text-xs sm:text-sm font-medium text-gray-400 mb-1">Email</label>
                         <input
                             name="email"
                             type="email"
                             value={formData.email}
                             onChange={handleChange}
-                            className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
+                            className="w-full bg-black/50 border border-white/10 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
                             placeholder="john@example.com"
                             required
                         />
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-400 mb-1">Phone</label>
+                        <label className="block text-xs sm:text-sm font-medium text-gray-400 mb-1">Phone</label>
                         <input
                             name="phone"
                             type="tel"
                             value={formData.phone}
                             onChange={handleChange}
-                            className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
+                            className="w-full bg-black/50 border border-white/10 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
                             placeholder="+1234567890"
                             required
                         />
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-400 mb-1">Password</label>
+                        <label className="block text-xs sm:text-sm font-medium text-gray-400 mb-1">Password</label>
                         <input
                             name="password"
                             type="password"
                             value={formData.password}
                             onChange={handleChange}
-                            className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
+                            className="w-full bg-black/50 border border-white/10 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
                             placeholder="Create a password"
                             required
                             minLength={6}
@@ -119,13 +119,13 @@ export default function SignupPage() {
                     <button
                         type="submit"
                         disabled={loading}
-                        className="w-full bg-gradient-to-r from-purple-500 to-pink-600 text-white font-bold py-3 rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50 mt-4"
+                        className="w-full bg-gradient-to-r from-purple-500 to-pink-600 text-white font-bold py-2.5 sm:py-3 rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50 mt-3 sm:mt-4 text-sm sm:text-base"
                     >
                         {loading ? 'Creating Account...' : 'Sign Up'}
                     </button>
                 </form>
 
-                <p className="mt-6 text-center text-gray-400 text-sm">
+                <p className="mt-4 sm:mt-6 text-center text-gray-400 text-xs sm:text-sm">
                     Already have an account?{' '}
                     <Link href="/login" className="text-purple-400 hover:text-purple-300">
                         Log in
