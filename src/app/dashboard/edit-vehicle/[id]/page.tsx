@@ -60,7 +60,7 @@ export default function EditVehiclePage(props: { params: Promise<{ id: string }>
         setError('');
 
         try {
-            const res = await fetchAPI<any>(`/vehicles/${vehicleId}`, {
+            const res = await fetchAPI<ApiResponse<Vehicle>>(`/vehicles/${vehicleId}`, {
                 method: 'PUT',
                 body: JSON.stringify({
                     ...formData,
