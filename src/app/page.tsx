@@ -5,7 +5,7 @@ import { Vehicle, ApiResponse } from '@/types';
 
 async function getVehicles() {
   try {
-    const res = await fetch('http://localhost:5000/api/v1/vehicles', {
+    const res = await fetch('https://y-mauve-delta-29.vercel.app/api/v1/vehicles', {
       cache: 'no-store',
     });
 
@@ -86,7 +86,7 @@ export default async function Home() {
           <div className="text-center py-12 sm:py-16 md:py-20 bg-white/5 rounded-2xl border border-white/10 px-4">
             <h3 className="text-xl sm:text-2xl font-bold text-gray-300 mb-4">System Offline / No Vehicles</h3>
             <p className="text-sm sm:text-base text-gray-500 mb-4 sm:mb-6">Could not connect to the fleet server or no vehicles available.</p>
-            <p className="text-xs text-gray-600 font-mono">Ensure backend is running on http://localhost:5000</p>
+            <p className="text-xs text-gray-600 font-mono">Backend: https://y-mauve-delta-29.vercel.app</p>
           </div>
         )}
       </section>

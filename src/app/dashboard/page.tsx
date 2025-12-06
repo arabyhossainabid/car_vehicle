@@ -103,7 +103,7 @@ export default function DashboardPage() {
         if (!confirm('Are you sure you want to delete this vehicle?')) return;
 
         try {
-            const res = await fetchAPI<any>(`/vehicles/${vehicleId}`, {
+            const res = await fetchAPI<ApiResponse<{ message?: string }>>(`/vehicles/${vehicleId}`, {
                 method: 'DELETE',
             });
 

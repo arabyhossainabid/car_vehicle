@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Vehicle } from '@/types';
+import { Vehicle, Booking, ApiResponse } from '@/types';
 import { fetchAPI } from '@/lib/api';
 
 interface BookingInterfaceProps {
@@ -45,7 +45,7 @@ export default function BookingInterface({ vehicle }: BookingInterfaceProps) {
         setError('');
 
         try {
-            const res = await fetchAPI<any>('/bookings', {
+            const res = await fetchAPI<ApiResponse<Booking>>('/bookings', {
                 method: 'POST',
                 body: JSON.stringify({
                     customer_id: user.id,

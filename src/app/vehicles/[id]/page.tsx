@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 async function getVehicle(id: string) {
     try {
-        const res = await fetch(`http://localhost:5000/api/v1/vehicles/${id}`, {
+        const res = await fetch(`https://y-mauve-delta-29.vercel.app/api/v1/vehicles/${id}`, {
             cache: 'no-store',
         });
 

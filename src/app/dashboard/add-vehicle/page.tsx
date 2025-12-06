@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { fetchAPI } from '@/lib/api';
+import { ApiResponse, Vehicle } from '@/types';
 import Link from 'next/link';
 
 export default function AddVehiclePage() {
@@ -23,7 +24,7 @@ export default function AddVehiclePage() {
         setError('');
 
         try {
-            const res = await fetchAPI<any>('/vehicles', {
+            const res = await fetchAPI<ApiResponse<Vehicle>>('/vehicles', {
                 method: 'POST',
                 body: JSON.stringify({
                     ...formData,

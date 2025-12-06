@@ -7,9 +7,11 @@ import { useRouter } from 'next/navigation';
 export default function Navbar() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [mounted, setMounted] = useState(false);
     const router = useRouter();
 
     useEffect(() => {
+        setMounted(true);
         const token = localStorage.getItem('token');
         setIsLoggedIn(!!token);
     }, []);
@@ -38,7 +40,7 @@ export default function Navbar() {
                         Vehicles
                     </Link>
 
-                    {isLoggedIn ? (
+                    {mounted && isLoggedIn ? (
                         <>
                             <Link href="/dashboard" className="text-gray-300 hover:text-white transition-colors text-sm lg:text-base">
                                 Dashboard
@@ -103,7 +105,7 @@ export default function Navbar() {
                             Vehicles
                         </Link>
 
-                        {isLoggedIn ? (
+                        {mounted && isLoggedIn ? (
                             <>
                                 <Link
                                     href="/dashboard"
